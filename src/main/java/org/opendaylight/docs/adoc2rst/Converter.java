@@ -17,6 +17,8 @@ import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.opendaylight.docs.adoc2rst.model.Adoc;
+import org.opendaylight.docs.adoc2rst.rules.BoldRule;
+import org.opendaylight.docs.adoc2rst.rules.ListRule;
 import org.opendaylight.docs.adoc2rst.rules.QuoteRule;
 import org.opendaylight.docs.adoc2rst.rules.Rule;
 import org.opendaylight.docs.adoc2rst.rules.SectionRule;
@@ -51,6 +53,8 @@ public class Converter {
             rules = new ArrayList<Rule>();
             rules.add(new QuoteRule(properties));
             rules.add(new SectionRule(properties));
+            rules.add(new ListRule(properties));
+            rules.add(new BoldRule(properties));
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
